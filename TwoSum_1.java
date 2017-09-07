@@ -13,29 +13,20 @@ return [0, 1].
 import java.util.HashMap;
 
 public class TwoSum_1 {
-	public static void main(String[] args) {
-		int first = -1, second = -1, sum = 17;
-
-		int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-		HashMap<Integer, Integer> hmap = foo(arr);
-		for (int i = 0; i < arr.length; i++) {
-			first = i;
-			if (hmap.get(sum - arr[i]) != null) {
-				second = hmap.get(sum - arr[i]);
-				break;
-			}
-		}
-		if (first >= 0 && second >= 0 && first != second)
-			System.out.println(first + " : " + second);
-		else
-			System.out.println("no such two elements");
-	}
-
-	public static HashMap<Integer, Integer> foo(int[] arr) {
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		for (int i = 0; i < arr.length; i++) {
-			map.put(arr[i], i);
-		}
-		return map;
-	}
+	public int[] twoSum(int[] nums, int target) {
+        int[] ret = new int[2];
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int i = 0; i < nums.length; i ++){
+            hm.put(nums[i], i);
+        }
+        
+        for(int i = 0; i < nums.length; i ++){
+            if( hm.get(target - nums[i]) != null && hm.get(target - nums[i]) != i){
+                ret[0] = i;
+                ret[1] = hm.get(target - nums[i]);
+                return ret;
+            }
+        }
+        return null;
+    }
 }
