@@ -9,16 +9,6 @@
  */
 
 public class Remove_Duplicates_from_Sorted_List_83 {
-
-	public class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
-
 	public ListNode deleteDuplicates(ListNode head) {
 		ListNode current = head;
 		while (current != null && current.next != null) {

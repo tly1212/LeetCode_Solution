@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -14,21 +16,20 @@ import java.util.Stack;
 public class Symmetric_Tree_101 {
 
 	// Recursive
-	// public boolean isSymmetric(TreeNode root) {
-	// return root == null || isSymmetricHelp(root.left, root.right);
-	// }
-	//
-	// private boolean isSymmetricHelp(TreeNode left, TreeNode right) {
-	// if (left == null || right == null)
-	// return left == right;
-	// if (left.val != right.val)
-	// return false;
-	// return isSymmetricHelp(left.left, right.right) &&
-	// isSymmetricHelp(left.right, right.left);
-	// }
+	public boolean isSymmetric(TreeNode root) {
+		return root == null || isSymmetricHelp(root.left, root.right);
+	}
+
+	private boolean isSymmetricHelp(TreeNode left, TreeNode right) {
+		if (left == null || right == null)
+			return left == right;
+		if (left.val != right.val)
+			return false;
+		return isSymmetricHelp(left.left, right.right) && isSymmetricHelp(left.right, right.left);
+	}
 
 	// Non-recursive
-	public boolean isSymmetric(TreeNode root) {
+	public boolean isSymmetric2(TreeNode root) {
 		if (root == null)
 			return true;
 
@@ -69,6 +70,28 @@ public class Symmetric_Tree_101 {
 			}
 		}
 
+		return true;
+	}
+
+	// online itarative solution
+	public boolean isSymmetric3(TreeNode root) {
+		Queue<TreeNode> q = new LinkedList<>();
+		q.add(root);
+		q.add(root);
+		while (!q.isEmpty()) {
+			TreeNode t1 = q.poll();
+			TreeNode t2 = q.poll();
+			if (t1 == null && t2 == null)
+				continue;
+			if (t1 == null || t2 == null)
+				return false;
+			if (t1.val != t2.val)
+				return false;
+			q.add(t1.left);
+			q.add(t2.right);
+			q.add(t1.right);
+			q.add(t2.left);
+		}
 		return true;
 	}
 }

@@ -12,16 +12,16 @@ public class Add_Binary_67 {
 		int toNext = 0;
 		String out = "";
 		while (inda >= 0 && indb >= 0) {
-			if (Integer.parseInt(a.charAt(inda) + "") + Integer.parseInt(a.charAt(inda) + "") + toNext == 3) {
+			if (Integer.parseInt(a.charAt(inda) + "") + Integer.parseInt(b.charAt(indb) + "") + toNext == 3) {
 				out = "1" + out;
 				toNext = 1;
-			} else if (Integer.parseInt(a.charAt(inda) + "") + Integer.parseInt(a.charAt(inda) + "") + toNext == 2) {
+			} else if (Integer.parseInt(a.charAt(inda) + "") + Integer.parseInt(b.charAt(indb) + "") + toNext == 2) {
 				out = "0" + out;
 				toNext = 1;
-			} else if (Integer.parseInt(a.charAt(inda) + "") + Integer.parseInt(a.charAt(inda) + "") + toNext == 1) {
+			} else if (Integer.parseInt(a.charAt(inda) + "") + Integer.parseInt(b.charAt(indb) + "") + toNext == 1) {
 				out = "1" + out;
 				toNext = 0;
-			} else if (Integer.parseInt(a.charAt(inda) + "") + Integer.parseInt(a.charAt(inda) + "") + toNext == 0) {
+			} else if (Integer.parseInt(a.charAt(inda) + "") + Integer.parseInt(b.charAt(indb) + "") + toNext == 0) {
 				out = "0" + out;
 				toNext = 0;
 			}
@@ -30,13 +30,13 @@ public class Add_Binary_67 {
 		}
 		if (inda < 0) {
 			while (indb >= 0) {
-				if (Integer.parseInt(a.charAt(indb) + "") + toNext == 2) {
+				if (Integer.parseInt(b.charAt(indb) + "") + toNext == 2) {
 					out = "0" + out;
 					toNext = 1;
-				} else if (Integer.parseInt(a.charAt(indb) + "") + toNext == 1) {
+				} else if (Integer.parseInt(b.charAt(indb) + "") + toNext == 1) {
 					out = "1" + out;
 					toNext = 0;
-				} else if (Integer.parseInt(a.charAt(indb) + "") + toNext == 0) {
+				} else if (Integer.parseInt(b.charAt(indb) + "") + toNext == 0) {
 					out = "0" + out;
 					toNext = 0;
 				}
