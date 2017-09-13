@@ -16,31 +16,31 @@ public class Binary_Tree_Level_Order_Traversal_II_107 {
 
 	// BFS
 
-	// public List<List<Integer>> levelOrderBottom(TreeNode root) {
-	// Queue<TreeNode> q = new LinkedList<TreeNode>();
-	// List<List<Integer>> out = new LinkedList<List<Integer>>();
-	//
-	// if(root == null)
-	// return out;
-	//
-	// q.offer(root);
-	// while(!q.isEmpty()){
-	// int qsize = q.size();
-	// List<Integer> sublist = new LinkedList<Integer>();
-	// for(int i = 0; i < qsize; i++){
-	// if(q.peek().left != null)
-	// q.offer(q.peek().left);
-	// if(q.peek().right != null)
-	// q.offer(q.peek().right);
-	// sublist.add(q.poll().val);
-	// }
-	// out.add(0,sublist);
-	// }
-	// return out;
-	// }
+	public List<List<Integer>> levelOrderBottom(TreeNode root) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		List<List<Integer>> out = new LinkedList<List<Integer>>();
+
+		if (root == null)
+			return out;
+
+		q.offer(root);
+		while (!q.isEmpty()) {
+			int qsize = q.size();
+			List<Integer> sublist = new LinkedList<Integer>();
+			for (int i = 0; i < qsize; i++) {
+				if (q.peek().left != null)
+					q.offer(q.peek().left);
+				if (q.peek().right != null)
+					q.offer(q.peek().right);
+				sublist.add(q.poll().val);
+			}
+			out.add(0, sublist);
+		}
+		return out;
+	}
 
 	// DFS
-	public List<List<Integer>> levelOrderBottom(TreeNode root) {
+	public List<List<Integer>> levelOrderBottom2(TreeNode root) {
 		List<List<Integer>> wrapList = new LinkedList<List<Integer>>();
 		levelMaker(wrapList, root, 0);
 		return wrapList;

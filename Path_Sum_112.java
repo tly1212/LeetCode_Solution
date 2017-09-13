@@ -8,15 +8,11 @@
 public class Path_Sum_112 {
 
 	public boolean hasPathSum(TreeNode root, int sum) {
-		boolean v1, v2;
 		if (root == null)
 			return false;
 		if (sum - root.val == 0 && root.left == null && root.right == null)
 			return true;
-		else {
-			v1 = hasPathSum(root.left, sum - root.val);
-			v2 = hasPathSum(root.right, sum - root.val);
-		}
-		return (v1 || v2);
+		else 
+			return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);		
 	}
 }
