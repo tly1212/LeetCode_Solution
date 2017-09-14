@@ -15,21 +15,19 @@ public class Valid_Palindrome_125 {
 			return true;
 		int i = 0, j = len - 1;
 		while (i <= j) {
-			while (!Character.isLetterOrDigit(s.charAt(i)))
+			if (!Character.isLetterOrDigit(s.charAt(i)))
 				i++;
-			while (!Character.isLetterOrDigit(s.charAt(j)))
+			else if (!Character.isLetterOrDigit(s.charAt(j)))
 				j--;
-			if (Character.toUpperCase(s.charAt(i)) == Character.toUpperCase(s.charAt(j))) {
-				i++;
-				j--;
-			} else
-				return false;
+			else {
+				if (Character.toUpperCase(s.charAt(i)) != Character.toUpperCase(s.charAt(j)))
+					return false;
+				else {
+					i++;
+					j--;
+				}
+			}
 		}
 		return true;
-	}
-
-	public static void main(String[] args) {
-		boolean out = isPalindrome("ji;;;s,,si...j");
-		System.out.println(out);
 	}
 }

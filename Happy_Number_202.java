@@ -19,7 +19,6 @@ import java.util.HashSet;
 public class Happy_Number_202 {
 	public boolean isHappy(int n) {
 		HashSet<Integer> hs = new HashSet<Integer>();
-		hs.add(n);
 		while(hs.add(n)){
 			int sum = 0;
 			while(n > 0){

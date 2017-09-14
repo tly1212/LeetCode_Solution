@@ -8,6 +8,17 @@
  */
 public class Factorial_Trailing_Zeroes_172 {
 	public int trailingZeroes(int n) {
-		return n == 0 ? 0 : n / 5 + trailingZeroes(n / 5);
+		 int ret = 0;
+	        int num = 5;
+	        while(n != 0){
+	            ret += n/num;
+	            n /= 5;
+	        }
+	        // why the following does not work?
+		// while(num <= n){
+		// ret += n/num;
+		// num *= 5;
+		// }
+	        return ret;
 	}
 }

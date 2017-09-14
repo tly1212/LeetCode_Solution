@@ -12,7 +12,7 @@
 public class Excel_Sheet_Column_Number_171 {
 	public int titleToNumber(String s) {
 		int out = 0;
-		for(int i = 1; i < s.length(); i++){
+		for(int i = 0; i < s.length(); i++){
 			out = 26 *out + s.charAt(i) - 'A' +1;
 		}
 		return out;

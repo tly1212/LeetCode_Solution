@@ -11,6 +11,7 @@
  */
 public class Rotate_Array_189 {
 	public void rotate(int[] nums, int k) {
+		// O（n^2）
 		for (int i = 0; i < k; i++) {
 			int temp = nums[nums.length - 1];
 			for (int j = nums.length - 1; j > 0; j--) {
@@ -22,7 +23,7 @@ public class Rotate_Array_189 {
 
 	// Approach #2 Using Extra Array
 
-//	 Approach #4 Using Reverse
+	 // Approach #4 Using Reverse
 //	 public void rotate(int[] nums, int k) {
 //	 k %= nums.length;//This is because that sometimes, k is larger than the length of array. For example nums = [1, 2, 3, 4, 5], k = 12, this means we only need to rotate the last two numbers. k = k % nums.length = 2;
 //	 reverse(nums, 0, nums.length - 1);
