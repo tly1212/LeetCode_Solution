@@ -21,9 +21,7 @@ import java.util.HashMap;
  *
  */
 public class Isomorphic_Strings_205 {
-	public static boolean isIsomorphic(String s, String t) {
-		// this solution is O(N*N), because of the containsValue() method! Every
-		// search of containsValue() is O(N).
+	public boolean isIsomorphic(String s, String t) {
 		HashMap<Character, Integer> map1 = new HashMap<Character, Integer>();
 		HashMap<Character, Integer> map2 = new HashMap<Character, Integer>();
 		int len = s.length();
@@ -37,19 +35,16 @@ public class Isomorphic_Strings_205 {
 		}
 		return true;
 
-		// method 2 from online
-
-		// int[] m = new int[512];
-		// for (int i = 0; i < s1.length(); i++) {
-		// if (m[s1.charAt(i)] != m[s2.charAt(i)+256]) return false;
-		// m[s1.charAt(i)] = m[s2.charAt(i)+256] = i+1;
-		// }
-		// return true;
 	}
 
-
-	public static void main(String[] args) {
-		boolean a = isIsomorphic("paper", "title");
-		System.out.println(a);
+	// method 2 from online
+	public boolean isIsomorphic2(String s1, String s2) {
+		int[] m = new int[512];
+		for (int i = 0; i < s1.length(); i++) {
+			if (m[s1.charAt(i)] != m[s2.charAt(i) + 256])
+				return false;
+			m[s1.charAt(i)] = m[s2.charAt(i) + 256] = i + 1;
+		}
+		return true;
 	}
 }

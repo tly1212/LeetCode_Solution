@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ import java.util.Set;
  *
  */
 public class Contains_Duplicate_II_219 {
-	public static boolean containsNearbyDuplicate(int[] nums, int k) {
+	public boolean containsNearbyDuplicate(int[] nums, int k) {
 		Set<Integer> set = new HashSet<Integer>();
 		for (int i = 0; i < nums.length; i++) {
 			if (i > k)
@@ -21,9 +22,19 @@ public class Contains_Duplicate_II_219 {
 		return false;
 	}
 	
-	public static void main(String[] args){
-		int[] b = {1,4,4};
-		boolean a = containsNearbyDuplicate(b,1);
-		System.out.println(a);
-	}
+	public boolean containsNearbyDuplicate2(int[] nums, int k) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int i = 0; i < nums.length; i++){
+            if(hm.containsKey(nums[i])){
+                if(i - hm.get(nums[i]) <=k)
+                    return true;
+                else
+                    hm.put(nums[i],i);
+            }
+            else{
+                hm.put(nums[i],i);
+            }
+        }
+        return false;
+    }
 }
