@@ -9,23 +9,10 @@
  */
 public class Missing_Number_268 {
 	public int missingNumber(int[] nums) {
-		int out = -1;
-		for (int i = 0; i < nums.length - 2; i++) {
-			if (nums[i + 1] - nums[i] != 1) {
-				out = nums[i] + 1;
-				break;
-			}
-		}
-		return out;
+		int sum = 0;
+		for (int num : nums)
+			sum += num;
+
+		return (nums.length * (nums.length + 1)) / 2 - sum;
 	}
-
-	// online solution
-
-	// public int missingNumber(int[] nums) {
-	// int sum = 0;
-	// for(int num: nums)
-	// sum += num;
-	//
-	// return (nums.length * (nums.length + 1) )/ 2 - sum;
-	// }
 }

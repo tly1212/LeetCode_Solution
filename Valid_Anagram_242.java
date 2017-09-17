@@ -12,7 +12,7 @@ import java.util.HashSet;
  *
  */
 public class Valid_Anagram_242 {
-	public static boolean isAnagram(String s, String t) {
+	public boolean isAnagram(String s, String t) {
 		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
 		HashSet<Character> hs = new HashSet<Character>();
 
@@ -51,9 +51,5 @@ public class Valid_Anagram_242 {
 	// return true;
 	// }
 
-	public static void main(String[] args) {
-		String s = "test1", t = "test";
-		boolean out = isAnagram(s, t);
-		System.out.println(out);
-	}
+	
 }
