@@ -5,16 +5,18 @@ import java.util.HashSet;
 /**
  * Given two arrays, write a function to compute their intersection.
  * 
- * Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+ * Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
  * 
- * Note: Each element in the result must be unique. The result can be in any
- * order.
+ * Note: Each element in the result should appear as many times as it shows in
+ * both arrays. The result can be in any order.
  * 
  * @author Liang-yu
  *
  */
 public class Intersection_of_Two_Arrays_II_350 {
 	public static int[] intersection(int[] nums1, int[] nums2) {
+		if (nums1 == null || nums2 == null)
+			return null;
 		ArrayList<Integer> al = new ArrayList<Integer>();
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
 		HashSet<Integer> hs = new HashSet<Integer>();
@@ -27,7 +29,7 @@ public class Intersection_of_Two_Arrays_II_350 {
 			}
 		}
 		for (int e : nums2) {
-			if (hm.get(e) > 0) {
+			if (hm.get(e) != null && hm.get(e) > 0) {
 				al.add(e);
 				hm.put(e, hm.get(e) - 1);
 			}

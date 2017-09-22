@@ -14,7 +14,7 @@ public class Valid_Perfect_Square_367 {
 			// One thing to note is that we have to use long for mid to avoid
 			// mid*mid from overflow. Also, you can use long type for low and
 			// high to avoid type casting for mid from long to int.
-			long mid = (low + high) >>> 1;
+			long mid = (low + high) / 2;
 			if (mid * mid == num) {
 				return true;
 			} else if (mid * mid < num) {

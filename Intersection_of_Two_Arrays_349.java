@@ -15,9 +15,12 @@ import java.util.HashSet;
  */
 public class Intersection_of_Two_Arrays_349 {
 	public static int[] intersection(int[] nums1, int[] nums2) {
+		if (nums1 == null || nums2 == null)
+			return null;
 		ArrayList<Integer> al = new ArrayList<Integer>();
 		HashMap<Integer, Boolean> hm = new HashMap<Integer, Boolean>();
 		HashSet<Integer> hs = new HashSet<Integer>();
+		HashSet<Integer> ret = new HashSet<Integer>();
 		for (int e : nums1) {
 			if (!hs.contains(e)) {
 				hs.add(e);
@@ -25,23 +28,16 @@ public class Intersection_of_Two_Arrays_349 {
 			}
 		}
 		for (int e : nums2) {
-			if (hm.get(e)) {
-				al.add(e);
+			if (hm.get(e) != null) {
+				ret.add(e);
 				hm.put(e, false);
 			}
 		}
 
-		int[] out = new int[al.size()];
-		for (int i = 0; i < al.size(); i++)
-			out[i] = al.get(i);
+		int[] out = new int[ret.size()];
+		int c = 0;
+		for (int e : ret)
+			out[c++] = e;
 		return out;
-	}
-	
-	public static void main(String[] args){
-		int[] a = {1,2,3,2,3,2,3,4};
-		int[] b = {1,4,2,3};
-		int[] out = intersection(a,b);
-		for(int e : out)
-			System.out.println(e);
 	}
 }
