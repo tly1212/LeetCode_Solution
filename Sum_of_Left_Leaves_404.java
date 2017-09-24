@@ -17,9 +17,9 @@ public class Sum_of_Left_Leaves_404 {
 			sum += root.left.val;
 
 		if (root.left == null && root.right != null)
-			sum += sumOfLeftLeaves(root.left);
-		else if (root.right == null && root.left != null)
 			sum += sumOfLeftLeaves(root.right);
+		else if (root.right == null && root.left != null)
+			sum += sumOfLeftLeaves(root.left);
 		else
 			sum += sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
 
